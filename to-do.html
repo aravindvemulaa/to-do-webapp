@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do Application</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="auth" class="container">
+        <h1>To-Do Application</h1>
+        <div id="login-form">
+            <h2>Login</h2>
+            <input type="text" id="login-username" placeholder="Username">
+            <input type="password" id="login-password" placeholder="Password">
+            <button onclick="login()">Login</button>
+            <p>Don't have an account? <a href="#" onclick="showRegisterForm()">Register</a></p>
+            <p><a href="#" onclick="showResetForm()">Forgot Password?</a></p>
+        </div>
+        <div id="register-form" class="hidden">
+            <h2>Register</h2>
+            <input type="text" id="register-username" placeholder="Username">
+            <input type="email" id="register-email" placeholder="Email">
+            <input type="password" id="register-password" placeholder="Password">
+            <button onclick="register()">Register</button>
+            <p>Already have an account? <a href="#" onclick="showLoginForm()">Login</a></p>
+        </div>
+        <div id="reset-form" class="hidden">
+            <h2>Reset Password</h2>
+            <input type="email" id="reset-email" placeholder="Email">
+            <button onclick="resetPassword()">Reset Password</button>
+            <p><a href="#" onclick="showLoginForm()">Back to Login</a></p>
+        </div>
+    </div>
+
+    <div id="todo-app" class="hidden container">
+        <h1>My To-Do List</h1>
+        <div id="filters">
+            <input type="text" id="search" placeholder="Search tasks...">
+            <select id="filter-priority">
+                <option value="all">All Priorities</option>
+                <option value="high">High Priority</option>
+                <option value="medium">Medium Priority</option>
+                <option value="low">Low Priority</option>
+            </select>
+            <select id="sort-by">
+                <option value="dueDate">Sort by Due Date</option>
+                <option value="priority">Sort by Priority</option>
+                <option value="alphabetical">Sort Alphabetically</option>
+            </select>
+        </div>
+        <div id="add-task">
+            <input type="text" id="task-input" placeholder="Enter a new task">
+            <input type="date" id="due-date">
+            <select id="priority">
+                <option value="low">Low Priority</option>
+                <option value="medium">Medium Priority</option>
+                <option value="high">High Priority</option>
+            </select>
+            <button onclick="addTask()">Add Task</button>
+        </div>
+        <ul id="task-list"></ul>
+        <div id="stats">
+            <p>Total Tasks: <span id="total-tasks">0</span></p>
+            <p>Completed Tasks: <span id="completed-tasks">0</span></p>
+        </div>
+        <button onclick="exportTasks()">Export Tasks</button>
+        <button onclick="logout()">Logout</button>
+    </div>
+    <script src="response.js"></script>
+</body>
+</html>
